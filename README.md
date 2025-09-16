@@ -13,6 +13,8 @@
 
 ### 1. リポジトリをクローン
 
+以下は **SSH を使用した場合の例** です。HTTPS を使用する場合は GitHub 上でリポジトリのクローン用 URL を変更してください。
+
 ```bash
 git clone git@github.com:novel-muraguchi/chatbot-be.git
 cd chatbot-be
@@ -22,18 +24,11 @@ cd chatbot-be
 
 ### 2. `.env` ファイルを作成
 
-プロジェクトルートに `.env` ファイルを作成し、以下を記載してください。
+ルートディレクトリに `.env` ファイルを作成してください。
+`.env.example` を用意していますので、以下のコマンドでコピーしてから必要に応じて値を編集してください。
 
-```env
-ENVIRONMENT=local
-PYTHONPATH=src/chatbot_be
-
-DB_CONNECTION=mysql
-DB_HOST=chatbot-be-db
-DB_PORT=3306
-DB_DATABASE=chatbot_be
-DB_USERNAME=user
-DB_PASSWORD=your_password
+```bash
+cp .env.example .env
 ```
 
 ---
