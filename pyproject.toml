@@ -1,0 +1,31 @@
+[project]
+name = "chatbot-be"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "risa.muraguchi",email = "risa.muraguchi@novel.jpn.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "fastapi[all] (>=0.116.1,<0.117.0)",
+    "sqlalchemy (>=2.0.43,<3.0.0)",
+    "python-dotenv (>=1.1.1,<2.0.0)",
+    "alembic (>=1.16.5,<2.0.0)",
+    "mysqlclient (>=2.2.7,<3.0.0)",
+    "llama-index (>=0.14.0,<0.15.0)",
+    "llama-index-embeddings-azure-openai (>=0.4.1,<0.5.0)"
+]
+
+[tool.poetry]
+packages = [{include = "chatbot_be", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+ruff = "^0.13.0"
+freezegun = "^1.5.5"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
