@@ -87,6 +87,7 @@ fix/チケット番号
 #### 運用フロー
 
 ```mermaid
+%%{init: { 'theme': 'base' } }%%
 gitGraph
    commit id: "main初期"
    branch feature/MRIS-5
