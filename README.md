@@ -51,6 +51,77 @@ http://localhost:8000/docs
 
 ---
 
+
+## Linter / Formatter - Ruff
+
+このプロジェクトではPythonのコード整形および静的解析ツールとして**Ruff**を使用しています。
+
+### Ruff を使用する目的
+
+- PEP8 準拠のコードスタイルチェック（pycodestyle）
+- 未使用変数などの検出（pyflakes）
+- インポート順序の整理（isort）
+- バグになりうるパターンの検出（bugbear）
+- 冗長な構文の簡素化（simplify）
+- 型アノテーションの確認（annotations）
+- 自動修正可能（`--fix`）
+
+---
+
+
+### 初期セットアップ手順
+
+#### 1. Poetry 仮想環境を作成 & 依存関係インストール
+
+```bash
+poetry install
+```
+
+> `ruff` は `[tool.poetry.group.dev.dependencies]` に開発用依存として含まれています。
+
+#### 2. 仮想環境を有効化（任意）
+
+```bash
+poetry shell
+```
+
+※ `poetry shell` コマンドが無効な場合は、以下を使用してください：
+
+```bash
+# プロジェクト仮想環境のパスを取得
+poetry env info --path
+
+# 仮想環境を手動でアクティブにする
+source $(poetry env info --path)/bin/activate
+```
+
+---
+
+### CLI での Ruff 実行方法
+
+```bash
+# コードチェックのみ実行
+ruff check .
+
+# 自動修正も含めて実行
+ruff check . --fix
+```
+
+### 仮想環境に入らずに Ruff を実行する方法
+
+仮想環境に入らずに Ruff を直接実行したい場合は、以下のように Poetry 経由でコマンドを実行してください：
+
+```bash
+# コードチェックのみ実行
+poetry run ruff check .
+
+# 自動修正も含めて実行
+poetry run ruff check . --fix
+```
+
+
+---
+
 ## GitHub ブランチ運用ルール
 
 ### ブランチ一覧と役割
