@@ -88,11 +88,13 @@ poetry shell
 ※ `poetry shell` コマンドが無効な場合は、以下を使用してください：
 
 ```bash
-# プロジェクト仮想環境のパスを取得
-poetry env info --path
+# 仮想環境をアクティブにするためのコマンドを出力
+poetry env activate
 
-# 仮想環境を手動でアクティブにする
-source $(poetry env info --path)/bin/activate
+# 上記の出力をコピーしてシェル上で実行することで、仮想環境がアクティブになります。
+# 例：
+source /Users/yourname/chatbot-be/.venv/bin/activate
+
 ```
 
 ---
@@ -106,19 +108,7 @@ ruff check .
 # 自動修正も含めて実行
 ruff check . --fix
 ```
-
-### 仮想環境に入らずに Ruff を実行する方法
-
-仮想環境に入らずに Ruff を直接実行したい場合は、以下のように Poetry 経由でコマンドを実行してください：
-
-```bash
-# コードチェックのみ実行
-poetry run ruff check .
-
-# 自動修正も含めて実行
-poetry run ruff check . --fix
-```
-
+> 仮想環境に入らずに実行する場合は、先頭に `poetry`をつけて実行してください。
 
 ---
 
