@@ -35,5 +35,6 @@ jobs:
       - name: Run Ruff linter  # Ruff による Lint チェック（コード品質・構文チェック）
         run: poetry run ruff check .
 
+      # TODO: テストコードができたらtrueを外す
       - name: Run tests with pytest  # pytest実行
         run: poetry run pytest || true  # テスト失敗でもジョブを失敗にしない
