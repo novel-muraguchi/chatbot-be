@@ -4,11 +4,9 @@ on:
   push:  # push時に実行
     paths:
       - "**"  # すべてのファイルの変更が対象
-      - ".github/workflows/backend-ci.yaml"  # ワークフローファイル自身の変更も対象
   pull_request:  # プルリクエスト作成・更新時に実行
     paths:
       - "**"
-      - ".github/workflows/backend-ci.yaml"
 
 jobs:
   build:
@@ -25,7 +23,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Poetry  # Poetry（依存管理ツール）をインストール
-        uses: abatilo/actions-poetry@v2
+        uses: snok/install-poetry@v1
         with:
           poetry-version: 2.1.3
 
