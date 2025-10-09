@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Ruff  # ジョブ名
+    name: Code Checks  # ジョブ名
     runs-on: ubuntu-latest  # 最新の Ubuntu 仮想環境上でジョブを実行
 
     steps:
@@ -33,6 +33,5 @@ jobs:
       - name: Run Ruff linter  # Ruff による Lint チェック（コード品質・構文チェック）
         run: poetry run ruff check .
 
-      # TODO: テストコードができたらtrueを外す
       - name: Run tests with pytest  # pytest実行
-        run: poetry run pytest || true  # テスト失敗でもジョブを失敗にしない
+        run: poetry run pytest
