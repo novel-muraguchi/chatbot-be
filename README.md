@@ -2,9 +2,9 @@
 
 ## プロジェクト概要
 
-このプロジェクトは、社内手続き関連のPDFやWordファイルなどをアップロードし、その内容に基づいて質問応答が可能なチャットボットを構築するAPIです。
+本プロジェクトは、社内手続き関連のPDFやWordファイルなどをアップロードし、その内容に基づいて質問応答が可能なチャットボットを構築するAPIである。
 
-アップロードされたドキュメントは分割・Embeddingされ、ベクトルDB（FAISS）に格納されます。ユーザーからの質問に対してはRAGにより、根拠付きの自然な回答を提供します。
+アップロードされたドキュメントは分割・Embeddingされ、ベクトルDB（FAISS）に格納される。ユーザーからの質問に対してはRAGにより、根拠付きの自然な回答を提供する。
 
 ---
 
@@ -13,7 +13,7 @@
 
 ### 1. リポジトリをクローン
 
-以下は **SSH を使用した場合の例** です。HTTPS を使用する場合は GitHub 上でリポジトリのクローン用 URL を変更してください。
+以下は **SSH を使用した場合の例** です。HTTPS を使用する場合は GitHub 上でリポジトリのクローン用 URL を変更すること。
 
 ```bash
 git clone git@github.com:novel-muraguchi/chatbot-be.git
@@ -24,8 +24,8 @@ cd chatbot-be
 
 ### 2. `.env` ファイルを作成
 
-ルートディレクトリに `.env` ファイルを作成してください。
-`.env.example` を用意していますので、以下のコマンドでコピーしてから必要に応じて値を編集してください。
+ルートディレクトリに `.env` ファイルを作成する。
+`.env.example` を用意しているため、以下のコマンドでコピーしてから必要に応じて値を編集すること。
 
 ```bash
 cp .env.example .env
@@ -43,7 +43,7 @@ docker compose up -d
 
 ### 4. FastAPI のドキュメントを確認
 
-ブラウザで以下のURLにアクセスし、Swagger UI が表示されることを確認します。
+ブラウザで以下のURLにアクセスし、Swagger UI が表示されることを確認する。
 
 ```
 http://localhost:8000/docs
@@ -54,7 +54,7 @@ http://localhost:8000/docs
 
 ## Linter / Formatter - Ruff
 
-このプロジェクトではPythonのコード整形および静的解析ツールとして**Ruff**を使用しています。
+本プロジェクトではPythonのコード整形および静的解析ツールとして**Ruff**を使用している。
 
 ### Ruff を使用する目的
 
@@ -77,7 +77,7 @@ http://localhost:8000/docs
 poetry install
 ```
 
-> `ruff` は `[tool.poetry.group.dev.dependencies]` に開発用依存として含まれています。
+> `ruff` は `[tool.poetry.group.dev.dependencies]` に開発用依存として含まれている。
 
 #### 2. 仮想環境を有効化（任意）
 
@@ -85,13 +85,13 @@ poetry install
 poetry shell
 ```
 
-※ `poetry shell` コマンドが無効な場合は、以下を使用してください：
+※ `poetry shell` コマンドが無効な場合は、以下を使用する：
 
 ```bash
 # 仮想環境をアクティブにするためのコマンドを出力
 poetry env activate
 
-# 上記の出力をコピーしてシェル上で実行することで、仮想環境がアクティブになります。
+# 上記の出力をコピーしてシェル上で実行することで、仮想環境がアクティブになる。
 # 例：
 source /Users/yourname/chatbot-be/.venv/bin/activate
 
@@ -108,7 +108,23 @@ ruff check .
 # 自動修正も含めて実行
 ruff check . --fix
 ```
-> 仮想環境に入らずに実行する場合は、先頭に `poetry`をつけて実行してください。
+> 仮想環境に入らずに実行する場合は、先頭に `poetry`をつけて実行すること。
+
+---
+
+## テストの実行方法
+
+本プロジェクトでは、pytest を使用してテストを実行している。
+
+```bash
+# 以下のコマンドでテストを実行
+poetry run pytest
+```
+
+### 補足
+- テストコードは tests/ ディレクトリに配置する。
+- ディレクトリ構成は api/ と同様に構成し、対応するファイルを同じ階層に持たせる。
+  - 例：src/chatbot_be/api/v1/healthcheck.py → tests/api/v1/test_healthcheck.py
 
 ---
 
@@ -189,7 +205,7 @@ gitGraph
 
 ### 例外
 
-- 今回のプロジェクトでは developやrelease ブランチは使用せず、feature/* や fix/* などの作業ブランチから main へ直接マージする方針とする
+- 本プロジェクトでは developやrelease ブランチは使用せず、feature/* や fix/* などの作業ブランチから main へ直接マージする方針とする
 
 ---
 

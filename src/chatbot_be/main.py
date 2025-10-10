@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from chatbot_be.api import router
+
 app = FastAPI()
+app.include_router(router, prefix="/api")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -10,6 +13,3 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root() -> dict:
-    return {"Hello": "World"}
